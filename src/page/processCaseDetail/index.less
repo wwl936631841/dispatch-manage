@@ -1,0 +1,166 @@
+.process-detail{
+    background: #EEF0F3;
+    padding:20px;
+    padding-top:0px;
+    .ant-row{
+        margin-left: 0px !important; 
+    }
+    .gutter-box{
+        background: #fff;
+    }
+    .ant-card-bordered{
+        border:0px;
+    }
+    .img{
+        height:270px;
+        .magnify-icon{
+            width:32px;
+            height: 32px;
+            cursor: pointer;
+            position: absolute;
+            bottom:0px;
+            right:0px;
+            background: #BCBCBC;
+            color:#fff;
+            font-size:20px;
+            text-align: center;
+            border:1px dashed #6A6A6A;
+        }
+    }
+    .process-started1{
+        height:270px;
+    }
+    .process-detail-picture{
+        position: relative;
+        width:100%;
+        height:270px;
+        margin-bottom:20px;
+    }
+    .analyze-data{
+        .analyze-data-content{
+            background: #ffffff;
+            padding:13px;
+            padding-top:0px;
+            height:602px;
+            position: relative;
+            .ant-empty{
+                position: absolute;
+                top:calc( 50% - 150px );
+                left:0px;
+                right:0px;
+            }
+            h4{
+                font-weight:bold;
+                font-size:14px;
+                color:rgba(51,51,51,1);
+                padding:15px 0px 10px 10px;
+            }
+            .analyze-data{
+                width:100%;
+                height:150px;
+                padding:12px 0px;
+                background:rgba(249,249,249,1);
+                
+                .analyze-data-item{
+                    width:100%;
+                    height:100%;
+                    padding:0px 20px;
+                    overflow-y:auto;
+                    word-break: break-all;
+                    font-size:14px;
+                    color:rgba(51,51,51,1);
+                    line-height:28px;
+                    .analyze-data-item__con{
+                        display: flex;
+                        justify-content: flex-start;
+                        margin-bottom:10px;
+                        label{
+                            font-weight:bold;
+                            font-size:14px;
+                            color:rgba(51,51,51,1);
+                            width:100px;
+                        }
+                        div{
+                            width:calc( 100% - 100px );
+                            word-break: break-all;
+                            font-size:14px;
+                            color:rgba(51,51,51,1);
+                            line-height:28px;
+                        }
+                    }
+                    .align-center{
+                        align-items: center;
+                    }
+                    .align-top{
+                        align-items: top;
+                    }
+                }
+            }
+        }
+        .analyze-data-select{
+            margin-top:10px;
+        }
+    }
+    .process-started{
+        margin-bottom:20px;
+        .process-started-title{
+            color: rgba(0,0,0,0.85);
+            font-size: 16px;
+            font-weight: 700;
+            padding:10px 10px 10px 13px;
+            border-bottom:1px solid #eee;
+           .process-select{
+               display: flex;
+               justify-content:space-between;
+               align-items: center;
+               label{
+                   font-weight:400;
+                   font-size:14px;
+                   color:#666;
+                   margin-right:5px;
+                   margin-left:10px;
+               }
+               .process-select__state{
+                   display: flex;
+                   justify-content: flex-start;
+                   align-items: center;
+                   flex-wrap:wrap ;
+               }
+               .process-state{
+                    font-weight:400;
+                    font-size:14px;
+                    color:red;
+                    display: inline-block;
+                    cursor: pointer;
+                }
+           } 
+        }
+        .process-started-list{
+            display: flex;
+            justify-content:space-between;
+            width:100%;
+            padding:6px 14px;
+            font-size:14px;
+            color:rgba(51,51,51,1);
+        }
+        .process-started-content{
+            padding:20px 38px 20px 20px;
+            font-size:14px;
+            color:rgba(51,51,51,1);
+            word-break: break-all;
+            line-height:35px;
+            height:643px;
+            overflow: auto;
+        }
+        .process-started-full{
+            background: #fff;
+        }
+    }
+}
+.image-magnify-body{
+    img{
+        width: 100%;
+        vertical-align: middle;
+        border-style: none;
+    }
+}

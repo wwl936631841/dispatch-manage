@@ -1,0 +1,46 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    name: <APP_NAME>
+  namespace: <NAMESPACE>
+  name: <APP_NAME>
+spec:
+  template:
+    spec:
+      terminationGracePeriodSeconds: 15 #k8s将会给应用发送SIGTERM信号
+      nodeSelector:
+             team: data-center
+      containers:
+      - image: <IMG_REPO>/<IMG_REPO_NAME>/<ENV_NAME>:<BUILD_TAG>
+        ports:
+        - containerPort: <CONTAINER_PORT>
+          protocol: TCP
+        name: <APP_NAME>
+        imagePullPolicy: IfNotPresent
+    metadata:
+      labels:
+        name: <APP_NAME>
+  replicas: <INSTANCE_NUM>
+  minReadySeconds: 15   #滚动升级时60s后认为该pod就绪
+  selector:
+    matchLabels:
+      name: <APP_NAME>
+  strategy:
+    rollingUpdate:  ##由于replicas为3,则整个升级,pod个数在2-4个之间
+      maxSurge: 1      #滚动升级时会先启动1个pod
+      maxUnavailable: 1 #滚动升级时允许的最大Unavailable的pod个数
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: <NAMESPACE>
+  name: <SERVICE_NAME>
+spec:
+  type: NodePort
+  ports:
+  - targetPort: <CONTAINER_PORT>
+    port: <CONTAINER_PORT>
+    nodePort: <NODE_PORT>
+  selector:
+    name: <APP_NAME>

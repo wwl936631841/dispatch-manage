@@ -1,0 +1,93 @@
+# ****************项目工程配置*********************
+# 工程名称
+projectName: dispatch-platform-admin
+# 业务版本号
+businessVersion: v1.0.0
+
+# 需要拉取的git分支
+checkOutBranch: master
+
+# ****************docker镜像相关配置*********************
+# 应用镜像名称(最好与工程名称一致，必须小写)
+appDockerImgName: dispatch-platform-admin
+# 镜像仓库地址
+dockerImageRepo: registry-vpc.cn-shenzhen.aliyuncs.com
+# 测试环境镜像仓库名称:
+dockerImageRepoName: dispatch-platform-admin
+# UAT环境镜像仓库名称
+dockerImageUatRepoName: dispatch-platform-admin-uat
+# 生产环境镜像仓库名称
+dockerImageProdRepoName: dispatch-platform-admin-prod
+# 镜像仓库命名空间
+dockerImageRepoNameSpace: poly-web
+# 镜像仓库凭证(添加jenkins凭证获取，不建议修改)
+dockerImageRepoCredentrialsId: 3138675d-7db2-4a8e-8b7d-485f0c67fa74
+
+# ****************制品库配置*********************
+# Jfrog服务名称(不建议修改)
+jfrogUrl: http://192.168.0.118:8889/artifactory
+jfrogOutUrl: http://120.79.150.108:8889/artifactory
+# Jfrog凭证(不要修改)
+jfrogCredentrialsId: 2217cda7-70c3-4cea-b0cb-d20a53949269
+
+# UAT/生产环境
+jfrogProductUrl: http://192.168.0.118:8087/artifactory
+# Jfrog开发服务外网地址(不建议修改)
+jfrogProductOutUrl: http://120.79.150.108:8087/artifactory
+# Jfrog凭证(不要修改)
+jfrogProductCredentrialsId: 8f057c94-8ecc-4a81-99b3-fec323866c19
+# Jfrog仓库名称(不建议修改)
+jfogServiceName: Poly-IU-MG
+
+# 邮件提醒
+email:
+  # 测试负责人邮件
+  tester: yixiu@shenzhenpoly.com
+  # 上线运维负责人邮件
+  publisher: wangchengrui@shenzhenpoly.com
+
+
+#******************容器编排设置*****************************
+# Rancher服务端地址：(不建议修改)
+k8s:
+  env:
+    # 测试环境
+    test:
+      # 命名空间(在rancher上面创建,找相应的管理员处理，(不建议修改))
+      nameSpace: mg-tp-test
+      # 应用服务名称(必须小写)
+      appName: dispatch-platform-admin
+      # 应用容器端口
+      appContainerPort: 80
+      # 对外暴露端口(30000-32700之间)
+      outputPort: 31785
+      # 服务发现名称(规则： 应用服务名称-svc)
+      serviceName: dispatch-platform-admin-svc
+      # 创建实例数量(不建议修改)
+      instanceNum: 1
+    uat:
+      # 命名空间(在rancher上面创建,找相应的管理员处理，(不建议修改))
+      nameSpace: mg-tp-uat
+      # 应用服务名称(必须小写)
+      appName: dispatch-platform-admin
+      # 应用容器端口
+      appContainerPort: 80
+      # 对外暴露端口(30000-32700之间)
+      outputPort: 31782
+      # 服务发现名称(规则： 应用服务名称-svc)
+      serviceName: dispatch-platform-admin-svc
+      # 创建实例数量(不建议修改)
+      instanceNum: 1
+    prod:
+      # 命名空间(在rancher上面创建,找相应的管理员处理，(不建议修改))
+      nameSpace: data-center
+      # 应用服务名称(必须小写)
+      appName: dispatch-platform-admin
+      # 应用容器端口
+      appContainerPort: 80
+      # 对外暴露端口(30000-32700之间)
+      outputPort: 30197
+      # 服务发现名称(规则： 应用服务名称-svc)
+      serviceName: dispatch-platform-admin-svc
+      # 创建实例数量(不建议修改)
+      instanceNum: 3
